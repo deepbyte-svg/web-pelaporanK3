@@ -1,0 +1,2868 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font:
+          14px -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: #fff;
+        color: #000;
+      }
+      img {
+        max-width: 100%;
+      }
+      [hidden]:not([hidden="until-found" i]) {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <title>Selamat K3</title>
+    <meta name="claude:viewport-fit-sides" content="cover" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap"
+    />
+    <style>
+      /* Layout: sticky pill navigation over a single flowing column of rounded surfaces, green on white, no square corners anywhere. */
+      :root {
+        --bg: #ffffff;
+        --surface: #f3faf5;
+        --surface-2: #e4f3e9;
+        --fg: #12301f;
+        --muted: #547060;
+        --line: #d3e7da;
+        --green: #178347;
+        --green-d: #0f5f33;
+        --green-l: #d2eedc;
+        --on-green: #ffffff;
+        --link: #0f5f33;
+        --ring: #2ba862;
+        --bad-bg: #fde9e6;
+        --bad-fg: #a3281b;
+        --warn-bg: #fff1d6;
+        --warn-fg: #8a5a00;
+        --info-bg: #e3eefb;
+        --info-fg: #1f559a;
+        --ok-bg: #d8f2e1;
+        --ok-fg: #14703c;
+        --overlay: rgba(10, 30, 18, 0.45);
+        --shadow: 0 10px 32px rgba(15, 95, 51, 0.1);
+        --f-display: "Bricolage Grotesque", system-ui, sans-serif;
+        --f-body: "Plus Jakarta Sans", system-ui, sans-serif;
+        --f-mono: "JetBrains Mono", ui-monospace, monospace;
+        --r-s: 14px;
+        --r-m: 20px;
+        --r-l: 28px;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0e1a13;
+          --surface: #14241a;
+          --surface-2: #1b3125;
+          --fg: #e6f3ea;
+          --muted: #9db8a8;
+          --line: #264233;
+          --green: #2fa865;
+          --green-d: #3fbf76;
+          --green-l: #1f3a2b;
+          --on-green: #04200e;
+          --link: #7fe0a8;
+          --ring: #5bd08e;
+          --bad-bg: #4a2420;
+          --bad-fg: #ffb4a8;
+          --warn-bg: #46361a;
+          --warn-fg: #f5cb7a;
+          --info-bg: #1e3250;
+          --info-fg: #a9cbf5;
+          --ok-bg: #1c4430;
+          --ok-fg: #8ee0ae;
+          --overlay: rgba(0, 0, 0, 0.6);
+          --shadow: none;
+          color-scheme: dark;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0e1a13;
+        --surface: #14241a;
+        --surface-2: #1b3125;
+        --fg: #e6f3ea;
+        --muted: #9db8a8;
+        --line: #264233;
+        --green: #2fa865;
+        --green-d: #3fbf76;
+        --green-l: #1f3a2b;
+        --on-green: #04200e;
+        --link: #7fe0a8;
+        --ring: #5bd08e;
+        --bad-bg: #4a2420;
+        --bad-fg: #ffb4a8;
+        --warn-bg: #46361a;
+        --warn-fg: #f5cb7a;
+        --info-bg: #1e3250;
+        --info-fg: #a9cbf5;
+        --ok-bg: #1c4430;
+        --ok-fg: #8ee0ae;
+        --overlay: rgba(0, 0, 0, 0.6);
+        --shadow: none;
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font: 400 16px/1.6 var(--f-body);
+        padding-left: max(16px, env(safe-area-inset-left, 0px));
+        padding-right: max(16px, env(safe-area-inset-right, 0px));
+        padding-block: 0 32px;
+        min-height: 100%;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0 0 auto;
+        height: env(safe-area-inset-top, 0px);
+        z-index: 30;
+        background: var(--bg);
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--f-display);
+        line-height: 1.15;
+        margin: 0;
+        text-wrap: balance;
+        letter-spacing: -0.01em;
+      }
+      h1 {
+        font-size: clamp(2.1rem, 5.4vw, 3.5rem);
+      }
+      h2 {
+        font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+      }
+      h3 {
+        font-size: 1.2rem;
+      }
+      p {
+        margin: 0;
+      }
+      a {
+        color: var(--link);
+      }
+      .wrap {
+        max-width: 1120px;
+        margin-inline: auto;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .eyebrow {
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--link);
+      }
+      .mono {
+        font-family: var(--f-mono);
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+      :focus-visible {
+        outline: 3px solid var(--ring);
+        outline-offset: 3px;
+      }
+
+      /* header */
+      .top {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 20;
+        background: var(--bg);
+        padding-block: 14px 12px;
+      }
+      .bar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px 16px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: var(--fg);
+        font: 700 1.25rem var(--f-display);
+        margin-right: auto;
+      }
+      .nav {
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        padding: 5px;
+        background: var(--surface);
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        max-width: 100%;
+        scrollbar-width: none;
+      }
+      .nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav a {
+        white-space: nowrap;
+        padding: 8px 16px;
+        border-radius: 999px;
+        text-decoration: none;
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 0.92rem;
+      }
+      .nav a:hover {
+        color: var(--fg);
+      }
+      .nav a.on {
+        background: var(--green);
+        color: var(--on-green);
+      }
+      .acct {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .who {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        line-height: 1.2;
+      }
+      .who-t {
+        display: flex;
+        flex-direction: column;
+        font-size: 0.85rem;
+      }
+      .who-t small {
+        color: var(--muted);
+      }
+      .avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--green-l);
+        color: var(--link);
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+      @media (max-width: 760px) {
+        .nav {
+          order: 3;
+          width: 100%;
+        }
+        .who-t {
+          display: none;
+        }
+      }
+
+      /* controls */
+      .btn {
+        font: 600 0.95rem var(--f-body);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: 999px;
+        border: 1.5px solid var(--green);
+        background: var(--green);
+        color: var(--on-green);
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          background 0.15s,
+          border-color 0.15s;
+      }
+      .btn:hover {
+        background: var(--green-d);
+        border-color: var(--green-d);
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--link);
+      }
+      .btn.ghost:hover {
+        background: var(--green-l);
+      }
+      .btn.sm {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+      }
+      .btn[disabled] {
+        opacity: 0.55;
+        cursor: not-allowed;
+      }
+      .icon-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1.5px solid var(--line);
+        background: var(--bg);
+        color: var(--fg);
+        font-size: 1.3rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .icon-btn:hover {
+        background: var(--green-l);
+      }
+      .chips {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .chip {
+        font: 600 0.88rem var(--f-body);
+        padding: 9px 16px;
+        border-radius: 999px;
+        border: 1.5px solid var(--line);
+        background: var(--bg);
+        color: var(--fg);
+        cursor: pointer;
+      }
+      .chip:hover {
+        background: var(--surface-2);
+      }
+      .chip.on {
+        background: var(--green);
+        border-color: var(--green);
+        color: var(--on-green);
+      }
+      .chip small {
+        opacity: 0.75;
+        margin-left: 4px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 0;
+      }
+      .field > label,
+      .lbl {
+        font-weight: 600;
+        font-size: 0.86rem;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        font: inherit;
+        padding: 12px 16px;
+        border-radius: 16px;
+        border: 1.5px solid var(--line);
+        background: var(--bg);
+        color: var(--fg);
+      }
+      textarea {
+        min-height: 112px;
+        resize: vertical;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: 3px solid var(--ring);
+        outline-offset: 1px;
+        border-color: var(--green);
+      }
+      .hint {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+      .err {
+        font-size: 0.85rem;
+        color: var(--bad-fg);
+        background: var(--bad-bg);
+        padding: 10px 14px;
+        border-radius: 14px;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 3px 12px;
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      .p-bad {
+        background: var(--bad-bg);
+        color: var(--bad-fg);
+      }
+      .p-warn {
+        background: var(--warn-bg);
+        color: var(--warn-fg);
+      }
+      .p-info {
+        background: var(--info-bg);
+        color: var(--info-fg);
+      }
+      .p-ok {
+        background: var(--ok-bg);
+        color: var(--ok-fg);
+      }
+      .p-mute {
+        background: var(--surface-2);
+        color: var(--muted);
+      }
+
+      /* surfaces */
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--r-l);
+        padding: 24px;
+        min-width: 0;
+      }
+      .card.plain {
+        background: var(--bg);
+      }
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+      }
+      .stack {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .sec {
+        margin-top: 56px;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .sec > header {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-width: 62ch;
+      }
+      main {
+        padding-top: 16px;
+      }
+      [data-view] {
+        animation: in 0.25s ease both;
+      }
+      @keyframes in {
+        from {
+          opacity: 0.4;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        [data-view] {
+          animation: none;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      /* hero */
+      .hero {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 24px;
+        align-items: center;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 40px;
+        padding: clamp(24px, 5vw, 56px);
+      }
+      .hero-t {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        min-width: 0;
+      }
+      .lead {
+        font-size: 1.1rem;
+        color: var(--muted);
+        max-width: 52ch;
+      }
+      .cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 6px;
+      }
+      .hero-i {
+        background: var(--green-l);
+        border-radius: 36px;
+        aspect-ratio: 1/0.9;
+        display: grid;
+        place-items: center;
+        max-width: 100%;
+        padding: 18px;
+      }
+      .hero-i svg {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+      }
+      @media (max-width: 820px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .hero-i {
+          order: -1;
+          aspect-ratio: auto;
+          padding: 12px;
+        }
+        .hero-i svg {
+          max-width: 200px;
+        }
+      }
+      .facts .card {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 20px;
+      }
+      .facts b {
+        font: 700 1.7rem var(--f-display);
+        color: var(--link);
+      }
+      .steps {
+        counter-reset: s;
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+      }
+      .step {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: var(--r-l);
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        min-width: 0;
+      }
+      .step .n {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--green);
+        color: var(--on-green);
+        display: grid;
+        place-items: center;
+        font: 700 1rem var(--f-display);
+      }
+
+      /* education */
+      .sign-grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      }
+      .sign {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: var(--r-l);
+        padding: 18px;
+      }
+      .sign svg {
+        flex: none;
+        width: 76px;
+        height: 76px;
+      }
+      .sign div {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .sign .eg {
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      .apd {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+      }
+      .apd-i {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: var(--r-m);
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 0;
+      }
+      .apd-i .pill {
+        align-self: flex-start;
+      }
+      .hier {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .hier-i {
+        border-radius: 20px;
+        padding: 14px 20px;
+        background: var(--green);
+        color: var(--on-green);
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+      }
+      .hier-i b {
+        font: 700 1.05rem var(--f-display);
+      }
+      .hier-i span {
+        font-size: 0.88rem;
+        opacity: 0.92;
+      }
+      .hier-i.l2 {
+        background: #3aa96a;
+        color: #07301a;
+      }
+      .hier-i.l3 {
+        background: #63bc88;
+        color: #07301a;
+      }
+      .hier-i.l4 {
+        background: #96d3ae;
+        color: #07301a;
+      }
+      .hier-i.l5 {
+        background: #c4e8d2;
+        color: #07301a;
+      }
+      .tri {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+      }
+      .tri > div {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: var(--r-m);
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .cls {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .cls-i {
+        display: grid;
+        grid-template-columns: 52px 1fr;
+        gap: 14px;
+        align-items: center;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: var(--r-m);
+        padding: 14px 16px;
+      }
+      .cls-i .k {
+        width: 52px;
+        height: 52px;
+        border-radius: 18px;
+        background: var(--green);
+        color: var(--on-green);
+        display: grid;
+        place-items: center;
+        font: 700 1.4rem var(--f-display);
+      }
+      .cls-i div {
+        min-width: 0;
+      }
+      .law {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .law-i {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: var(--r-m);
+        padding: 16px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .pass {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+      }
+      .pass > div {
+        background: var(--surface-2);
+        border-radius: var(--r-m);
+        padding: 16px 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .pass b {
+        font: 700 1.5rem var(--f-display);
+        color: var(--link);
+      }
+      .q {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: var(--r-l);
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .opts {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .opt {
+        font: 500 0.95rem var(--f-body);
+        text-align: left;
+        padding: 12px 18px;
+        border-radius: 18px;
+        border: 1.5px solid var(--line);
+        background: var(--bg);
+        color: var(--fg);
+        cursor: pointer;
+      }
+      .opt:hover:not([disabled]) {
+        background: var(--surface-2);
+      }
+      .opt.right {
+        background: var(--ok-bg);
+        border-color: var(--green);
+        color: var(--ok-fg);
+        font-weight: 700;
+      }
+      .opt.wrong {
+        background: var(--bad-bg);
+        border-color: var(--bad-fg);
+        color: var(--bad-fg);
+      }
+      .opt[disabled] {
+        cursor: default;
+      }
+      .expl {
+        font-size: 0.9rem;
+        background: var(--surface);
+        border-radius: 16px;
+        padding: 12px 16px;
+      }
+
+      /* report form */
+      .two {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1.35fr 1fr;
+        align-items: start;
+      }
+      @media (max-width: 900px) {
+        .two {
+          grid-template-columns: 1fr;
+        }
+      }
+      .frow {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      }
+      .sev {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .sev input {
+        position: absolute;
+        opacity: 0;
+        width: 1px;
+        height: 1px;
+      }
+      .sev label {
+        padding: 9px 18px;
+        border-radius: 999px;
+        border: 1.5px solid var(--line);
+        font-weight: 600;
+        font-size: 0.88rem;
+        cursor: pointer;
+        background: var(--bg);
+      }
+      .sev input:checked + label {
+        background: var(--green);
+        border-color: var(--green);
+        color: var(--on-green);
+      }
+      .sev input:focus-visible + label {
+        outline: 3px solid var(--ring);
+        outline-offset: 2px;
+      }
+      .ok-box {
+        background: var(--ok-bg);
+        color: var(--ok-fg);
+        border-radius: var(--r-m);
+        padding: 18px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .alert112 {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        background: var(--bad-bg);
+        color: var(--bad-fg);
+        border-radius: var(--r-m);
+        padding: 16px 18px;
+      }
+      .alert112 b {
+        font: 700 1.7rem var(--f-display);
+      }
+      .my {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .my-i {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: var(--r-m);
+        padding: 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        min-width: 0;
+      }
+      .my-i .line {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .note {
+        font-size: 0.85rem;
+        background: var(--surface);
+        border-radius: 14px;
+        padding: 8px 12px;
+      }
+
+      /* admin */
+      .tiles {
+        display: grid;
+        gap: 14px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+      }
+      .tile {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--r-l);
+        padding: 18px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .tile b {
+        font: 700 2.2rem/1.1 var(--f-display);
+        font-variant-numeric: tabular-nums;
+      }
+      .tile.hot {
+        background: var(--bad-bg);
+        border-color: transparent;
+        color: var(--bad-fg);
+      }
+      .tools {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .tools .search {
+        flex: 1 1 240px;
+        max-width: 360px;
+      }
+      .list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px 16px;
+        align-items: center;
+        text-align: left;
+        width: 100%;
+        font: inherit;
+        color: inherit;
+        background: var(--bg);
+        border: 1.5px solid var(--line);
+        border-radius: var(--r-l);
+        padding: 16px 22px;
+        cursor: pointer;
+      }
+      .row:hover {
+        border-color: var(--green);
+        background: var(--surface);
+      }
+      .row .main {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        min-width: 0;
+      }
+      .row .main b {
+        overflow-wrap: anywhere;
+      }
+      .row .meta {
+        font-size: 0.84rem;
+        color: var(--muted);
+      }
+      .row .pills {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      @media (max-width: 640px) {
+        .row {
+          grid-template-columns: 1fr;
+        }
+        .row .pills {
+          justify-content: flex-start;
+        }
+      }
+      .empty {
+        text-align: center;
+        padding: 36px 20px;
+        color: var(--muted);
+        background: var(--surface);
+        border-radius: var(--r-l);
+      }
+
+      /* dialog */
+      .overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        background: var(--overlay);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        overflow-y: auto;
+        padding: max(16px, env(safe-area-inset-top, 0px))
+          max(16px, env(safe-area-inset-right, 0px))
+          max(16px, env(safe-area-inset-bottom, 0px))
+          max(16px, env(safe-area-inset-left, 0px));
+      }
+      .sheet {
+        background: var(--bg);
+        border-radius: 32px;
+        width: 100%;
+        max-width: 640px;
+        margin: auto;
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--line);
+        min-width: 0;
+      }
+      .sheet-h {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .sheet-h h2 {
+        font-size: 1.5rem;
+        overflow-wrap: anywhere;
+      }
+      .kv {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+      }
+      .kv > div {
+        background: var(--surface);
+        border-radius: var(--r-s);
+        padding: 10px 14px;
+        min-width: 0;
+      }
+      .kv small {
+        display: block;
+        color: var(--muted);
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+      .kv span {
+        overflow-wrap: anywhere;
+      }
+      .desc {
+        background: var(--surface);
+        border-radius: var(--r-m);
+        padding: 14px 18px;
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+      }
+      .tl {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 4px;
+      }
+      .tl-i {
+        display: flex;
+        gap: 12px;
+      }
+      .tl-i i {
+        flex: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--green);
+        margin-top: 7px;
+      }
+      .tl-i div {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+      .demo-acc {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+      }
+      .acc {
+        text-align: left;
+        font: inherit;
+        color: inherit;
+        background: var(--surface);
+        border: 1.5px solid var(--line);
+        border-radius: var(--r-m);
+        padding: 14px 18px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+      }
+      .acc:hover {
+        border-color: var(--green);
+        background: var(--surface-2);
+      }
+      .acc span {
+        overflow-wrap: anywhere;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      .toast {
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, 20px);
+        bottom: max(20px, env(safe-area-inset-bottom, 0px));
+        z-index: 60;
+        background: var(--fg);
+        color: var(--bg);
+        padding: 12px 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        max-width: calc(100% - 32px);
+        text-align: center;
+      }
+      .toast.on {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+      /* photos */
+      .vh {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        pointer-events: none;
+      }
+      .media-btns {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .ph-list {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .ph-list:empty {
+        display: none;
+      }
+      .ph {
+        position: relative;
+        width: 96px;
+        height: 96px;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .ph img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .ph button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 0;
+        background: rgba(0, 0, 0, 0.62);
+        color: #fff;
+        font-size: 1rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .mini {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+      .mini img {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        object-fit: cover;
+        display: block;
+      }
+      .gal {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      }
+      .gal button {
+        padding: 0;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+        aspect-ratio: 1;
+        cursor: zoom-in;
+        background: var(--surface);
+      }
+      .gal img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .lb {
+        align-items: center;
+        background: rgba(0, 0, 0, 0.86);
+        z-index: 70;
+      }
+      .lb img {
+        max-width: 100%;
+        max-height: 80vh;
+        border-radius: 24px;
+        display: block;
+      }
+      .theme-btn {
+        display: grid;
+        place-items: center;
+        flex: none;
+      }
+      footer {
+        margin-top: 64px;
+        padding: 20px 24px;
+        border-radius: var(--r-l);
+        background: var(--surface);
+        font-size: 0.85rem;
+        color: var(--muted);
+        display: flex;
+        gap: 10px 24px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+    </style>
+
+    <header class="top">
+      <div class="wrap bar">
+        <a class="brand" href="#beranda" aria-label="Selamat K3, ke beranda">
+          <svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true">
+            <rect width="40" height="40" rx="13" fill="#178347" />
+            <path
+              d="M12 21.5l5.5 5.5L28.5 14"
+              fill="none"
+              stroke="#fff"
+              stroke-width="4.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Selamat K3
+        </a>
+        <nav id="nav" class="nav" aria-label="Menu utama"></nav>
+        <div id="acct" class="acct"></div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section id="v-beranda" data-view="beranda" hidden></section>
+      <section id="v-edukasi" data-view="edukasi" hidden></section>
+      <section id="v-lapor" data-view="lapor" hidden></section>
+      <section id="v-kelola" data-view="kelola" hidden></section>
+      <footer>
+        <span
+          >Situs demo. Laporan disimpan di peramban ini saja dan tidak dikirim
+          ke server.</span
+        >
+        <span>Keadaan darurat: hubungi 112</span>
+      </footer>
+    </main>
+    <div id="dlg"></div>
+    <div id="lb"></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script>
+      (function () {
+        "use strict";
+        var $ = function (s, r) {
+          return (r || document).querySelector(s);
+        };
+        var esc = function (s) {
+          return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+            return {
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+            }[c];
+          });
+        };
+
+        /* ---------- data ---------- */
+        var ACCOUNTS = [
+          {
+            email: "pekerja@selamatk3.demo",
+            pass: "pekerja123",
+            name: "Rina Wulandari",
+            role: "pekerja",
+            label: "Pekerja",
+          },
+          {
+            email: "admin@selamatk3.demo",
+            pass: "admin123",
+            name: "Bagas Pratama",
+            role: "admin",
+            label: "Admin K3",
+          },
+        ];
+        var STATUS = {
+          baru: ["Baru", "p-bad"],
+          verifikasi: ["Diverifikasi", "p-warn"],
+          proses: ["Dalam penanganan", "p-info"],
+          selesai: ["Selesai", "p-ok"],
+        };
+        var STATUS_KEYS = ["baru", "verifikasi", "proses", "selesai"];
+        var SEV = {
+          ringan: ["Ringan", "p-ok"],
+          sedang: ["Sedang", "p-warn"],
+          berat: ["Berat", "p-bad"],
+        };
+        var TYPES = [
+          "Nyaris celaka",
+          "Cedera ringan",
+          "Cedera berat",
+          "Kerusakan alat atau properti",
+          "Kebakaran atau ledakan",
+          "Penyakit akibat kerja",
+          "Lainnya",
+        ];
+        var KEY = "selamatk3.demo.v1",
+          mem = null;
+
+        function ago(days, h) {
+          var t = new Date();
+          t.setDate(t.getDate() - days);
+          t.setHours(h, 15, 0, 0);
+          return t.toISOString();
+        }
+        function seed() {
+          var adm = "Bagas Pratama";
+          return {
+            session: null,
+            seq: 4,
+            reports: [
+              {
+                id: "LK-2026-0001",
+                demo: true,
+                createdAt: ago(21, 10),
+                when: ago(21, 9),
+                reporter: {
+                  email: "dimas@selamatk3.demo",
+                  name: "Dimas Kurniawan",
+                },
+                location: "Gudang Bahan Baku",
+                type: "Cedera ringan",
+                severity: "ringan",
+                victim: "Dimas Kurniawan",
+                desc: "Terpeleset di lantai licin akibat tumpahan oli saat memindahkan palet. Lutut kiri lecet dan sudah dibersihkan di pos P3K.",
+                action: "Area diberi tanda, tumpahan dibersihkan.",
+                status: "selesai",
+                pic: "Dewi Lestari",
+                target: "",
+                logs: [
+                  {
+                    at: ago(21, 10),
+                    by: "Dimas Kurniawan",
+                    status: "baru",
+                    text: "Laporan diterima.",
+                  },
+                  {
+                    at: ago(20, 8),
+                    by: adm,
+                    status: "proses",
+                    text: "Pemeriksaan lokasi. Sumber tumpahan dari selang hidrolik forklift yang bocor.",
+                  },
+                  {
+                    at: ago(14, 14),
+                    by: adm,
+                    status: "selesai",
+                    text: "Selang diganti, jadwal inspeksi forklift ditambah, rambu lantai licin dipasang.",
+                  },
+                ],
+              },
+              {
+                id: "LK-2026-0002",
+                demo: true,
+                createdAt: ago(6, 16),
+                when: ago(6, 15),
+                reporter: {
+                  email: "pekerja@selamatk3.demo",
+                  name: "Rina Wulandari",
+                },
+                location: "Area Welding",
+                type: "Nyaris celaka",
+                severity: "sedang",
+                victim: "Tidak ada korban",
+                desc: "Percikan las mengenai tumpukan kardus di dekat area kerja. Api dipadamkan dengan APAR sebelum menyebar.",
+                action: "Kardus dipindahkan, APAR diperiksa.",
+                status: "proses",
+                pic: "Dewi Lestari",
+                target: ago(-5, 9).slice(0, 10),
+                logs: [
+                  {
+                    at: ago(6, 16),
+                    by: "Rina Wulandari",
+                    status: "baru",
+                    text: "Laporan diterima.",
+                  },
+                  {
+                    at: ago(5, 9),
+                    by: adm,
+                    status: "proses",
+                    text: "Izin kerja panas (hot work permit) wajib diperketat. Zona bebas bahan mudah terbakar 11 meter akan ditandai.",
+                  },
+                ],
+              },
+              {
+                id: "LK-2026-0003",
+                demo: true,
+                createdAt: ago(2, 13),
+                when: ago(2, 11),
+                reporter: {
+                  email: "rudi@selamatk3.demo",
+                  name: "Rudi Hartono",
+                },
+                location: "Lantai Produksi 2",
+                type: "Cedera berat",
+                severity: "berat",
+                victim: "Operator mesin press, 1 orang",
+                desc: "Jari tangan kanan terjepit mesin press saat membersihkan sisa material tanpa mematikan mesin terlebih dahulu. Korban dibawa ke klinik perusahaan lalu dirujuk ke rumah sakit.",
+                action: "Mesin dihentikan, korban dirujuk.",
+                status: "verifikasi",
+                pic: "",
+                target: "",
+                logs: [
+                  {
+                    at: ago(2, 13),
+                    by: "Rudi Hartono",
+                    status: "baru",
+                    text: "Laporan diterima.",
+                  },
+                  {
+                    at: ago(2, 15),
+                    by: adm,
+                    status: "verifikasi",
+                    text: "Laporan diverifikasi. Mesin press diberi tanda terkunci (lockout) sampai investigasi selesai.",
+                  },
+                ],
+              },
+              {
+                id: "LK-2026-0004",
+                demo: true,
+                createdAt: ago(0, 8),
+                when: ago(0, 7),
+                reporter: {
+                  email: "fitri@selamatk3.demo",
+                  name: "Fitri Handayani",
+                },
+                location: "Area Parkir Forklift",
+                type: "Kerusakan alat atau properti",
+                severity: "ringan",
+                victim: "Tidak ada korban",
+                desc: "Forklift menabrak rak penyimpanan di sisi timur. Rak penyok dan sebagian barang bergeser.",
+                action: "",
+                status: "baru",
+                pic: "",
+                target: "",
+                logs: [
+                  {
+                    at: ago(0, 8),
+                    by: "Fitri Handayani",
+                    status: "baru",
+                    text: "Laporan diterima.",
+                  },
+                ],
+              },
+            ],
+          };
+        }
+        function load() {
+          try {
+            var r = localStorage.getItem(KEY);
+            if (r) {
+              var s = JSON.parse(r);
+              if (s && s.reports) return s;
+            }
+          } catch (e) {}
+          return mem;
+        }
+        var state = load() || seed();
+        function save() {
+          mem = state;
+          try {
+            localStorage.setItem(KEY, JSON.stringify(state));
+            return true;
+          } catch (e) {
+            return false;
+          }
+        }
+
+        /* ---------- theme ---------- */
+        var TK = "selamatk3.theme";
+        var root = document.documentElement;
+        function sysDark() {
+          try {
+            return window.matchMedia("(prefers-color-scheme: dark)").matches;
+          } catch (e) {
+            return false;
+          }
+        }
+        function effTheme() {
+          return (
+            root.getAttribute("data-theme") || (sysDark() ? "dark" : "light")
+          );
+        }
+        try {
+          var savedTheme = localStorage.getItem(TK);
+          if (savedTheme === "dark" || savedTheme === "light")
+            root.setAttribute("data-theme", savedTheme);
+        } catch (e) {}
+        var ICON_SUN =
+          '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg>';
+        var ICON_MOON =
+          '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.2A8.5 8.5 0 0 1 9.8 4a8.5 8.5 0 1 0 10.2 10.2z"/></svg>';
+        function toggleTheme() {
+          var n = effTheme() === "dark" ? "light" : "dark";
+          root.setAttribute("data-theme", n);
+          try {
+            localStorage.setItem(TK, n);
+          } catch (e) {}
+          renderHeader();
+          toast(n === "dark" ? "Mode gelap aktif." : "Mode terang aktif.");
+        }
+        var fmt = function (iso) {
+          try {
+            return new Intl.DateTimeFormat("id-ID", {
+              dateStyle: "medium",
+              timeStyle: "short",
+            }).format(new Date(iso));
+          } catch (e) {
+            return iso;
+          }
+        };
+        var fmtD = function (d) {
+          try {
+            return new Intl.DateTimeFormat("id-ID", {
+              dateStyle: "medium",
+            }).format(new Date(d));
+          } catch (e) {
+            return d;
+          }
+        };
+        var pill = function (map, k) {
+          var m = map[k] || [k, "p-mute"];
+          return '<span class="pill ' + m[1] + '">' + esc(m[0]) + "</span>";
+        };
+
+        /* ---------- education content ---------- */
+        var SIGNS = [
+          {
+            t: "Rambu larangan",
+            d: "Lingkaran merah dengan garis diagonal. Menyatakan hal yang tidak boleh dilakukan.",
+            e: "Dilarang merokok, dilarang masuk, dilarang menyalakan api.",
+            s: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="30" fill="#fff" stroke="#D32F2F" stroke-width="9"/><line x1="19" y1="19" x2="61" y2="61" stroke="#D32F2F" stroke-width="9" stroke-linecap="round"/></svg>',
+          },
+          {
+            t: "Rambu peringatan",
+            d: "Segitiga kuning berpinggir hitam. Memberi tahu ada bahaya di sekitar Anda.",
+            e: "Awas lantai licin, bahaya listrik, bahan beracun.",
+            s: '<svg viewBox="0 0 80 80" aria-hidden="true"><path d="M40 12 L69 62 L11 62 Z" fill="#FFC107" stroke="#222" stroke-width="6" stroke-linejoin="round"/><line x1="40" y1="30" x2="40" y2="46" stroke="#222" stroke-width="6" stroke-linecap="round"/><circle cx="40" cy="55" r="3.4" fill="#222"/></svg>',
+          },
+          {
+            t: "Rambu perintah",
+            d: "Lingkaran biru dengan simbol putih. Mewajibkan tindakan tertentu.",
+            e: "Wajib memakai helm, sarung tangan, kacamata.",
+            s: '<svg viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="33" fill="#1E65C8"/><path d="M25 41l11 11 20-23" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+          },
+          {
+            t: "Rambu kondisi aman",
+            d: "Persegi hijau dengan simbol putih. Menunjukkan lokasi fasilitas keselamatan.",
+            e: "Kotak P3K, jalur evakuasi, titik kumpul.",
+            s: '<svg viewBox="0 0 80 80" aria-hidden="true"><rect x="7" y="7" width="66" height="66" rx="18" fill="#1B8F4C"/><rect x="33" y="20" width="14" height="40" rx="6" fill="#fff"/><rect x="20" y="33" width="40" height="14" rx="6" fill="#fff"/></svg>',
+          },
+          {
+            t: "Rambu pemadam kebakaran",
+            d: "Persegi merah dengan simbol putih. Menunjukkan lokasi alat pemadam.",
+            e: "APAR, hidran, tombol alarm kebakaran.",
+            s: '<svg viewBox="0 0 80 80" aria-hidden="true"><rect x="7" y="7" width="66" height="66" rx="18" fill="#D32F2F"/><rect x="29" y="30" width="22" height="34" rx="9" fill="#fff"/><rect x="34" y="20" width="12" height="12" rx="5" fill="#fff"/><path d="M46 25h10" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>',
+          },
+        ];
+        var APD = [
+          [
+            "Helm pengaman",
+            "Kepala",
+            "Area proyek, gudang bertingkat, di bawah beban gantung.",
+          ],
+          [
+            "Kacamata atau pelindung wajah",
+            "Mata dan wajah",
+            "Mengelas, menggerinda, bahan kimia yang berpotensi memercik.",
+          ],
+          [
+            "Masker atau respirator",
+            "Pernapasan",
+            "Debu, uap kimia, pengecatan. Pilih filter sesuai jenis bahayanya.",
+          ],
+          [
+            "Penyumbat atau penutup telinga",
+            "Pendengaran",
+            "Area bising. Nilai ambang batas umum adalah 85 dBA untuk 8 jam kerja.",
+          ],
+          [
+            "Sarung tangan",
+            "Tangan",
+            "Benda tajam, bahan kimia, panas, atau listrik. Pilih bahan yang sesuai.",
+          ],
+          [
+            "Sepatu keselamatan",
+            "Kaki",
+            "Lantai licin, benda berat, paku, atau pekerjaan dengan risiko listrik.",
+          ],
+          [
+            "Rompi reflektif",
+            "Tubuh",
+            "Area lalu lintas forklift atau kendaraan, dan kerja malam hari.",
+          ],
+          [
+            "Sabuk pengaman (harness)",
+            "Jatuh dari ketinggian",
+            "Kerja di ketinggian. Selalu kaitkan ke titik jangkar yang kuat.",
+          ],
+        ];
+        var HIER = [
+          ["Eliminasi", "Hilangkan sumber bahaya sepenuhnya."],
+          ["Substitusi", "Ganti dengan bahan atau proses yang lebih aman."],
+          [
+            "Rekayasa teknik",
+            "Pasang pelindung mesin, ventilasi, atau pengunci (interlock).",
+          ],
+          [
+            "Administratif",
+            "SOP, pelatihan, rambu, izin kerja, rotasi pekerja.",
+          ],
+          ["APD", "Perlindungan terakhir bagi pekerja, bukan yang utama."],
+        ];
+        var CLS = [
+          [
+            "A",
+            "Bahan padat biasa: kayu, kertas, kain, plastik.",
+            "Air, busa, serbuk kimia kering.",
+          ],
+          [
+            "B",
+            "Cairan dan gas mudah terbakar: bensin, minyak, cat.",
+            "Busa, karbon dioksida (CO₂), serbuk kimia kering.",
+          ],
+          [
+            "C",
+            "Peralatan listrik bertegangan.",
+            "CO₂ atau serbuk kimia kering. Jangan memakai air.",
+          ],
+          [
+            "D",
+            "Logam yang mudah terbakar: magnesium, titanium.",
+            "Serbuk khusus logam. Jangan memakai air.",
+          ],
+        ];
+        var LAWS = [
+          [
+            "UU No. 1 Tahun 1970",
+            "Keselamatan Kerja. Dasar hukum utama yang mewajibkan perlindungan keselamatan di tempat kerja.",
+          ],
+          [
+            "PP No. 50 Tahun 2012",
+            "Penerapan Sistem Manajemen K3 (SMK3) di perusahaan.",
+          ],
+          [
+            "Permenaker No. 8 Tahun 2010",
+            "Alat Pelindung Diri: kewajiban penyediaan dan penggunaannya.",
+          ],
+          [
+            "Permenaker No. 5 Tahun 2018",
+            "K3 Lingkungan Kerja: kebisingan, pencahayaan, iklim kerja, bahan kimia.",
+          ],
+          [
+            "Permenaker No. PER.03/MEN/1998",
+            "Tata cara pelaporan dan pemeriksaan kecelakaan. Pengurus melapor ke instansi ketenagakerjaan setempat dalam 2×24 jam.",
+          ],
+        ];
+        var QUIZ = [
+          {
+            q: "Rambu berbentuk lingkaran merah dengan garis diagonal berarti apa?",
+            o: [
+              "Peringatan bahaya",
+              "Larangan",
+              "Kewajiban memakai APD",
+              "Lokasi jalur evakuasi",
+            ],
+            a: 1,
+            x: "Lingkaran merah bergaris diagonal adalah rambu larangan.",
+          },
+          {
+            q: "Mana langkah pengendalian risiko yang paling efektif?",
+            o: [
+              "Memakai APD",
+              "Membuat SOP",
+              "Eliminasi sumber bahaya",
+              "Memasang rambu",
+            ],
+            a: 2,
+            x: "Eliminasi menghilangkan bahaya dari sumbernya, sehingga berada di puncak hierarki.",
+          },
+          {
+            q: "Tiga unsur yang harus ada agar api menyala adalah...",
+            o: [
+              "Panas, bahan bakar, oksigen",
+              "Air, listrik, udara",
+              "Asap, panas, angin",
+              "Bensin, api, kayu",
+            ],
+            a: 0,
+            x: "Segitiga api: panas, bahan bakar, dan oksigen. Menghilangkan salah satunya memadamkan api.",
+          },
+          {
+            q: "Kebakaran akibat korsleting listrik sebaiknya dipadamkan dengan...",
+            o: [
+              "Air dari selang",
+              "CO₂ atau serbuk kimia kering",
+              "Kain basah",
+              "Pasir basah",
+            ],
+            a: 1,
+            x: "Air menghantarkan listrik. Gunakan CO₂ atau serbuk kimia kering, dan putuskan aliran listrik bila aman.",
+          },
+          {
+            q: "Kapan kejadian kecelakaan kerja sebaiknya dilaporkan?",
+            o: [
+              "Akhir bulan",
+              "Segera setelah korban tertangani",
+              "Menunggu ada yang bertanya",
+              "Jika korban sudah sembuh",
+            ],
+            a: 1,
+            x: "Laporkan segera. Pengurus punya batas waktu 2×24 jam untuk melapor ke instansi ketenagakerjaan.",
+          },
+        ];
+
+        /* ---------- ui state ---------- */
+        var cur = "beranda",
+          eduTab = "rambu",
+          fStatus = "semua",
+          fQ = "",
+          quiz = {},
+          lastDone = null,
+          openId = null,
+          lastFocus = null;
+        var VIEWS = ["beranda", "edukasi", "lapor", "kelola"];
+        var nav = $("#nav"),
+          acct = $("#acct"),
+          dlg = $("#dlg");
+
+        function toast(m) {
+          var t = $("#toast");
+          t.textContent = m;
+          t.classList.add("on");
+          clearTimeout(toast.h);
+          toast.h = setTimeout(function () {
+            t.classList.remove("on");
+          }, 2800);
+        }
+        function me() {
+          return state.session;
+        }
+        function isAdmin() {
+          return state.session && state.session.role === "admin";
+        }
+        function initials(n) {
+          return n
+            .split(/\s+/)
+            .slice(0, 2)
+            .map(function (w) {
+              return w[0];
+            })
+            .join("")
+            .toUpperCase();
+        }
+
+        /* ---------- header ---------- */
+        function renderHeader() {
+          var items = [
+            ["beranda", "Beranda"],
+            ["edukasi", "Edukasi K3"],
+            ["lapor", "Lapor Kejadian"],
+          ];
+          if (isAdmin()) items.push(["kelola", "Kelola Laporan"]);
+          nav.innerHTML = items
+            .map(function (i) {
+              return (
+                '<a href="#' +
+                i[0] +
+                '" class="' +
+                (cur === i[0] ? "on" : "") +
+                '"' +
+                (cur === i[0] ? ' aria-current="page"' : "") +
+                ">" +
+                i[1] +
+                "</a>"
+              );
+            })
+            .join("");
+          var s = me(),
+            dk = effTheme() === "dark";
+          var tb =
+            '<button class="icon-btn theme-btn" data-act="theme" aria-label="' +
+            (dk ? "Ganti ke mode terang" : "Ganti ke mode gelap") +
+            '" title="' +
+            (dk ? "Mode terang" : "Mode gelap") +
+            '">' +
+            (dk ? ICON_SUN : ICON_MOON) +
+            "</button>";
+          acct.innerHTML =
+            tb +
+            (s
+              ? '<span class="who"><span class="avatar" aria-hidden="true">' +
+                esc(initials(s.name)) +
+                '</span><span class="who-t"><b>' +
+                esc(s.name) +
+                "</b><small>" +
+                esc(s.label) +
+                '</small></span></span><button class="btn ghost sm" data-act="logout">Keluar</button>'
+              : '<button class="btn sm" data-act="login">Masuk</button>');
+        }
+
+        /* ---------- views ---------- */
+        function gate(title, text, btn) {
+          return (
+            '<div class="card" style="margin-top:24px;max-width:560px;margin-inline:auto;text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center"><h2>' +
+            esc(title) +
+            '</h2><p class="muted">' +
+            esc(text) +
+            "</p>" +
+            btn +
+            "</div>"
+          );
+        }
+        function accountsHtml() {
+          return (
+            '<div class="demo-acc">' +
+            ACCOUNTS.map(function (a, i) {
+              return (
+                '<button type="button" class="acc" data-act="fill" data-i="' +
+                i +
+                '"><b>' +
+                esc(a.label) +
+                "</b><span>" +
+                esc(a.email) +
+                "</span><span>Kata sandi: " +
+                esc(a.pass) +
+                "</span></button>"
+              );
+            }).join("") +
+            "</div>"
+          );
+        }
+        function helmet() {
+          return '<svg viewBox="0 0 220 180" aria-hidden="true"><ellipse cx="110" cy="158" rx="84" ry="10" fill="#0F5F33" opacity=".12"/><path d="M34 118C34 64 68 30 110 30s76 34 76 88z" fill="#178347"/><path d="M52 112C54 72 78 48 108 46" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="9" stroke-linecap="round"/><rect x="92" y="22" width="36" height="84" rx="18" fill="#2FA865"/><rect x="14" y="108" width="192" height="30" rx="15" fill="#0F5F33"/><circle cx="110" cy="123" r="5" fill="#fff" opacity=".8"/></svg>';
+        }
+        function renderHome() {
+          $("#v-beranda").innerHTML =
+            '<div class="hero"><div class="hero-t"><p class="eyebrow">Keselamatan dan Kesehatan Kerja</p><h1>Kerja tuntas, pulang selamat.</h1><p class="lead">Pelajari dasar K3 di tempat kerja, lalu laporkan setiap kecelakaan atau nyaris celaka. Admin K3 meninjau tiap laporan dan mencatat tindak lanjutnya sampai selesai.</p><div class="cta"><a class="btn" href="#edukasi">Mulai belajar</a><a class="btn ghost" href="#lapor">Laporkan kejadian</a></div></div><div class="hero-i">' +
+            helmet() +
+            "</div></div>" +
+            '<div class="grid facts" style="margin-top:16px"><div class="card"><b>2×24 jam</b><span class="muted">Batas pelaporan kecelakaan kerja ke instansi ketenagakerjaan.</span></div><div class="card"><b>112</b><span class="muted">Nomor darurat. Hubungi lebih dulu bila ada korban atau api.</span></div><div class="card"><b>Nyaris celaka</b><span class="muted">Tetap dilaporkan. Kejadian kecil mencegah kecelakaan besar.</span></div></div>' +
+            '<div class="sec"><header><p class="eyebrow">Alur pelaporan</p><h2>Dari laporan sampai selesai</h2></header><div class="steps">' +
+            [
+              [
+                "Pekerja melapor",
+                "Isi waktu, lokasi, jenis kejadian, tingkat keparahan, dan kronologi singkat.",
+              ],
+              [
+                "Admin memverifikasi",
+                "Admin K3 memeriksa laporan dan menetapkan penanggung jawab.",
+              ],
+              [
+                "Penanganan",
+                "Tindakan korektif dijalankan dan setiap langkah dicatat di riwayat.",
+              ],
+              [
+                "Selesai dan dipantau",
+                "Laporan ditutup setelah tindakan terdokumentasi.",
+              ],
+            ]
+              .map(function (s, i) {
+                return (
+                  '<div class="step"><span class="n">' +
+                  (i + 1) +
+                  "</span><h3>" +
+                  s[0] +
+                  '</h3><p class="muted">' +
+                  s[1] +
+                  "</p></div>"
+                );
+              })
+              .join("") +
+            "</div></div>" +
+            '<div class="sec"><header><p class="eyebrow">Akun demo</p><h2>Coba dua peran</h2><p class="muted">Masuk sebagai pekerja untuk membuat laporan, atau sebagai admin untuk menindaklanjutinya. Klik salah satu untuk membuka form masuk.</p></header>' +
+            accountsHtml().replace(
+              /data-act="fill"/g,
+              'data-act="login-fill"',
+            ) +
+            "</div>";
+        }
+
+        function tabs() {
+          var T = [
+            ["rambu", "Rambu K3"],
+            ["apd", "APD"],
+            ["risiko", "Pengendalian risiko"],
+            ["api", "Api dan darurat"],
+            ["hukum", "Dasar hukum"],
+            ["kuis", "Kuis"],
+          ];
+          return (
+            '<div class="chips" role="tablist">' +
+            T.map(function (t) {
+              return (
+                '<button class="chip' +
+                (eduTab === t[0] ? " on" : "") +
+                '" role="tab" aria-selected="' +
+                (eduTab === t[0]) +
+                '" data-act="tab" data-t="' +
+                t[0] +
+                '">' +
+                t[1] +
+                "</button>"
+              );
+            }).join("") +
+            "</div>"
+          );
+        }
+        function eduBody() {
+          if (eduTab === "rambu")
+            return (
+              '<div class="stack"><p class="muted" style="max-width:62ch">Warna dan bentuk rambu sudah baku, sehingga artinya bisa dikenali sekilas meski Anda belum membaca tulisannya.</p><div class="sign-grid">' +
+              SIGNS.map(function (s) {
+                return (
+                  '<div class="sign">' +
+                  s.s +
+                  "<div><b>" +
+                  s.t +
+                  "</b><span>" +
+                  s.d +
+                  '</span><span class="eg">Contoh: ' +
+                  s.e +
+                  "</span></div></div>"
+                );
+              }).join("") +
+              "</div></div>"
+            );
+          if (eduTab === "apd")
+            return (
+              '<div class="stack"><p class="muted" style="max-width:62ch">APD wajib disediakan perusahaan dan wajib dipakai pekerja. Periksa kondisinya sebelum digunakan, dan ganti bila rusak.</p><div class="apd">' +
+              APD.map(function (a) {
+                return (
+                  '<div class="apd-i"><span class="pill p-ok">' +
+                  a[1] +
+                  "</span><b>" +
+                  a[0] +
+                  '</b><span class="muted" style="font-size:.9rem">' +
+                  a[2] +
+                  "</span></div>"
+                );
+              }).join("") +
+              "</div></div>"
+            );
+          if (eduTab === "risiko")
+            return (
+              '<div class="stack"><p class="muted" style="max-width:62ch">Hierarki pengendalian menyusun cara mengurangi risiko dari yang paling efektif (atas) ke yang paling lemah (bawah).</p><div class="hier">' +
+              HIER.map(function (h, i) {
+                return (
+                  '<div class="hier-i l' +
+                  (i + 1) +
+                  '" style="width:' +
+                  (100 - i * 11) +
+                  '%;min-width:min(100%,260px)"><b>' +
+                  h[0] +
+                  "</b><span>" +
+                  h[1] +
+                  "</span></div>"
+                );
+              }).join("") +
+              "</div></div>"
+            );
+          if (eduTab === "api")
+            return (
+              '<div class="stack"><h3>Segitiga api</h3><div class="tri"><div><b>Panas</b><span class="muted">Percikan, gesekan, listrik, permukaan panas.</span></div><div><b>Bahan bakar</b><span class="muted">Kertas, kayu, bensin, gas, kain.</span></div><div><b>Oksigen</b><span class="muted">Udara di sekitar kita.</span></div></div><p class="muted">Hilangkan salah satu unsur dan api padam.</p><h3 style="margin-top:8px">Kelas api dan pemadamnya</h3><div class="cls">' +
+              CLS.map(function (c) {
+                return (
+                  '<div class="cls-i"><span class="k">' +
+                  c[0] +
+                  "</span><div><b>" +
+                  c[1] +
+                  '</b><div class="muted" style="font-size:.9rem">Pemadam: ' +
+                  c[2] +
+                  "</div></div></div>"
+                );
+              }).join("") +
+              '</div><p class="hint">Pengelompokan kelas api dapat berbeda antar standar. Ikuti label pada APAR di tempat kerja Anda.</p><h3 style="margin-top:8px">Memakai APAR: PASS</h3><div class="pass"><div><b>P</b><span>Pull. Tarik pin pengunci.</span></div><div><b>A</b><span>Aim. Arahkan nozzle ke pangkal api.</span></div><div><b>S</b><span>Squeeze. Tekan handle.</span></div><div><b>S</b><span>Sweep. Sapukan kiri dan kanan.</span></div></div><div class="alert112"><b>112</b><span>Bila api membesar, jangan melawan. Bunyikan alarm, evakuasi lewat jalur yang ditandai, dan berkumpul di titik kumpul.</span></div></div>'
+            );
+          if (eduTab === "hukum")
+            return (
+              '<div class="stack"><p class="muted" style="max-width:62ch">Beberapa aturan pokok yang menjadi dasar K3 di Indonesia. Peraturan dapat diperbarui, jadi rujuk ke Kementerian Ketenagakerjaan untuk versi terbaru.</p><div class="law">' +
+              LAWS.map(function (l) {
+                return (
+                  '<div class="law-i"><b>' +
+                  l[0] +
+                  '</b><span class="muted">' +
+                  l[1] +
+                  "</span></div>"
+                );
+              }).join("") +
+              "</div></div>"
+            );
+          var done = Object.keys(quiz).length,
+            score = QUIZ.filter(function (q, i) {
+              return quiz[i] === q.a;
+            }).length;
+          return (
+            '<div class="stack"><p class="muted">Lima pertanyaan singkat untuk menguji pemahaman Anda.</p>' +
+            QUIZ.map(function (q, i) {
+              var ans = quiz[i],
+                has = ans !== undefined;
+              return (
+                '<div class="q"><b>' +
+                (i + 1) +
+                ". " +
+                q.q +
+                '</b><div class="opts">' +
+                q.o
+                  .map(function (o, j) {
+                    var c = has
+                      ? j === q.a
+                        ? " right"
+                        : j === ans
+                          ? " wrong"
+                          : ""
+                      : "";
+                    return (
+                      '<button class="opt' +
+                      c +
+                      '" data-act="quiz" data-q="' +
+                      i +
+                      '" data-o="' +
+                      j +
+                      '"' +
+                      (has ? " disabled" : "") +
+                      ">" +
+                      o +
+                      "</button>"
+                    );
+                  })
+                  .join("") +
+                "</div>" +
+                (has ? '<div class="expl">' + q.x + "</div>" : "") +
+                "</div>"
+              );
+            }).join("") +
+            (done === QUIZ.length
+              ? '<div class="ok-box"><b>Skor Anda: ' +
+                score +
+                " dari " +
+                QUIZ.length +
+                "</b><span>" +
+                (score === QUIZ.length
+                  ? "Sempurna. Bagikan ilmunya ke rekan kerja."
+                  : "Buka kembali tab materi untuk mengulang, lalu coba lagi.") +
+                '</span><div><button class="btn sm" style="margin-top:8px" data-act="quiz-reset">Ulangi kuis</button></div></div>'
+              : "") +
+            "</div>"
+          );
+        }
+        function renderEdu() {
+          $("#v-edukasi").innerHTML =
+            '<div class="sec" style="margin-top:24px"><header><p class="eyebrow">Edukasi K3</p><h1 style="font-size:clamp(1.9rem,4.4vw,2.8rem)">Kenali bahaya sebelum bahaya mengenali Anda</h1></header>' +
+            tabs() +
+            '<div id="edu-body">' +
+            eduBody() +
+            "</div></div>";
+        }
+
+        function nowLocal() {
+          var d = new Date();
+          d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+          return d.toISOString().slice(0, 16);
+        }
+        function myReports() {
+          var s = me();
+          return s
+            ? state.reports
+                .filter(function (r) {
+                  return r.reporter.email === s.email;
+                })
+                .sort(function (a, b) {
+                  return b.createdAt.localeCompare(a.createdAt);
+                })
+            : [];
+        }
+        function myList() {
+          var L = myReports();
+          if (!L.length)
+            return '<div class="empty">Anda belum membuat laporan.</div>';
+          return (
+            '<div class="my">' +
+            L.map(function (r) {
+              var last = r.logs[r.logs.length - 1],
+                note =
+                  r.logs.length > 1 && last
+                    ? '<div class="note"><b>Catatan admin:</b> ' +
+                      esc(last.text) +
+                      "</div>"
+                    : "";
+              return (
+                '<div class="my-i"><div class="line"><span class="mono">' +
+                esc(r.id) +
+                "</span>" +
+                pill(STATUS, r.status) +
+                "</div><b>" +
+                esc(r.location) +
+                '</b><span class="muted" style="font-size:.85rem">' +
+                esc(r.type) +
+                " · " +
+                esc(fmt(r.when)) +
+                "</span>" +
+                thumbs(r) +
+                note +
+                "</div>"
+              );
+            }).join("") +
+            "</div>"
+          );
+        }
+        function thumbs(r) {
+          return r.photos && r.photos.length
+            ? '<div class="mini">' +
+                r.photos
+                  .map(function (p, i) {
+                    return (
+                      '<img src="' +
+                      esc(p) +
+                      '" alt="Foto ' +
+                      (i + 1) +
+                      " laporan " +
+                      esc(r.id) +
+                      '">'
+                    );
+                  })
+                  .join("") +
+                "</div>"
+            : "";
+        }
+        function renderLapor() {
+          formPhotos = [];
+          var el = $("#v-lapor");
+          if (!me()) {
+            el.innerHTML = gate(
+              "Masuk untuk membuat laporan",
+              "Laporan terhubung dengan akun Anda supaya admin dapat menghubungi Anda bila perlu. Gunakan akun demo.",
+              '<button class="btn" data-act="login">Masuk dengan akun demo</button>',
+            );
+            return;
+          }
+          var done = lastDone
+            ? '<div class="ok-box" role="status"><b>Laporan terkirim</b><span>Nomor laporan Anda <b>' +
+              esc(lastDone) +
+              "</b>. Pantau statusnya di daftar Laporan saya.</span></div>"
+            : "";
+          el.innerHTML =
+            '<div class="sec" style="margin-top:24px"><header><p class="eyebrow">Pelaporan</p><h1 style="font-size:clamp(1.9rem,4.4vw,2.8rem)">Laporkan kejadian di tempat kerja</h1><p class="muted">Isi sejelas mungkin. Laporkan juga kejadian yang belum menimbulkan korban.</p></header>' +
+            '<div class="two"><div class="stack">' +
+            done +
+            '<form id="rf" class="card plain stack" novalidate>' +
+            '<div class="frow"><div class="field"><label for="f-when">Waktu kejadian</label><input id="f-when" type="datetime-local" value="' +
+            nowLocal() +
+            '" max="' +
+            nowLocal() +
+            '" required></div>' +
+            '<div class="field"><label for="f-loc">Lokasi kejadian</label><input id="f-loc" type="text" placeholder="Contoh: Gudang B, dekat pintu 2" maxlength="120" required></div></div>' +
+            '<div class="frow"><div class="field"><label for="f-type">Jenis kejadian</label><select id="f-type">' +
+            TYPES.map(function (t) {
+              return "<option>" + t + "</option>";
+            }).join("") +
+            "</select></div>" +
+            '<div class="field"><span class="lbl" id="sev-l">Tingkat keparahan</span><div class="sev" role="radiogroup" aria-labelledby="sev-l"><input type="radio" name="sev" id="s1" value="ringan" checked><label for="s1">Ringan</label><input type="radio" name="sev" id="s2" value="sedang"><label for="s2">Sedang</label><input type="radio" name="sev" id="s3" value="berat"><label for="s3">Berat</label></div></div></div>' +
+            '<div class="field"><label for="f-victim">Korban (jika ada)</label><input id="f-victim" type="text" placeholder="Nama dan jabatan, atau tulis: tidak ada korban" maxlength="160"></div>' +
+            '<div class="field"><label for="f-desc">Kronologi kejadian</label><textarea id="f-desc" placeholder="Apa yang terjadi, siapa yang terlibat, dan apa penyebab yang Anda lihat." maxlength="1500" required></textarea></div>' +
+            '<div class="field"><label for="f-act">Tindakan yang sudah dilakukan</label><textarea id="f-act" style="min-height:76px" placeholder="Contoh: korban diberi P3K, mesin dimatikan." maxlength="600"></textarea></div>' +
+            '<div class="field"><span class="lbl">Foto pendukung <span class="muted" style="font-weight:500">(opsional, maksimal 3)</span></span>' +
+            '<div class="media-btns"><button type="button" class="btn ghost sm" data-act="pick-cam">Ambil foto</button><button type="button" class="btn ghost sm" data-act="pick-gal">Pilih dari galeri</button></div>' +
+            '<input id="f-cam" class="vh" type="file" accept="image/*" capture="environment" tabindex="-1" aria-label="Ambil foto dengan kamera"><input id="f-gal" class="vh" type="file" accept="image/*" multiple tabindex="-1" aria-label="Pilih foto dari galeri">' +
+            '<div id="ph-list" class="ph-list"></div><span id="ph-msg" class="hint">Di ponsel, Ambil foto langsung membuka kamera. Di komputer akan membuka pemilih berkas. Foto dikecilkan otomatis.</span></div>' +
+            '<div id="rf-err" class="err" hidden></div>' +
+            '<div><button class="btn" type="submit">Kirim laporan</button></div></form></div>' +
+            '<div class="stack"><div class="alert112"><b>112</b><span>Ada korban atau api? Hubungi bantuan darurat dan beri pertolongan pertama lebih dulu, baru isi form ini.</span></div><div class="card"><h3 style="margin-bottom:14px">Laporan saya</h3><div id="my">' +
+            myList() +
+            "</div></div></div></div></div>";
+          renderPhotos();
+        }
+
+        function counts() {
+          var c = {};
+          STATUS_KEYS.forEach(function (k) {
+            c[k] = 0;
+          });
+          state.reports.forEach(function (r) {
+            c[r.status]++;
+          });
+          return c;
+        }
+        function renderKelola() {
+          var el = $("#v-kelola");
+          if (!isAdmin()) {
+            el.innerHTML = me()
+              ? gate(
+                  "Khusus admin",
+                  "Halaman ini hanya dapat dibuka oleh akun Admin K3.",
+                  '<button class="btn" data-act="logout">Keluar dan ganti akun</button>',
+                )
+              : gate(
+                  "Masuk sebagai admin",
+                  "Gunakan akun demo Admin K3 untuk menindaklanjuti laporan.",
+                  '<button class="btn" data-act="login">Masuk</button>',
+                );
+            return;
+          }
+          var c = counts(),
+            total = state.reports.length;
+          var chips = [["semua", "Semua", total]].concat(
+            STATUS_KEYS.map(function (k) {
+              return [k, STATUS[k][0], c[k]];
+            }),
+          );
+          el.innerHTML =
+            '<div class="sec" style="margin-top:24px"><header><p class="eyebrow">Panel admin</p><h1 style="font-size:clamp(1.9rem,4.4vw,2.8rem)">Kelola laporan kecelakaan kerja</h1></header>' +
+            '<div class="tiles"><div class="tile"><span class="muted">Total laporan</span><b>' +
+            total +
+            '</b></div><div class="tile' +
+            (c.baru ? " hot" : "") +
+            '"><span>Perlu ditinjau</span><b>' +
+            c.baru +
+            '</b></div><div class="tile"><span class="muted">Sedang diproses</span><b>' +
+            (c.verifikasi + c.proses) +
+            '</b></div><div class="tile"><span class="muted">Selesai</span><b>' +
+            c.selesai +
+            "</b></div></div>" +
+            '<div class="tools"><div class="chips">' +
+            chips
+              .map(function (x) {
+                return (
+                  '<button class="chip' +
+                  (fStatus === x[0] ? " on" : "") +
+                  '" data-act="filter" data-s="' +
+                  x[0] +
+                  '">' +
+                  x[1] +
+                  "<small>" +
+                  x[2] +
+                  "</small></button>"
+                );
+              })
+              .join("") +
+            '</div><div class="search"><input id="kq" type="search" placeholder="Cari nomor, lokasi, atau pelapor" aria-label="Cari laporan" value="' +
+            esc(fQ) +
+            '"></div></div>' +
+            '<div id="klist" class="list"></div><div><button class="btn ghost sm" data-act="reset-demo">Reset data demo</button></div></div>';
+          renderKList();
+        }
+        function renderKList() {
+          var q = fQ.trim().toLowerCase();
+          var L = state.reports
+            .filter(function (r) {
+              if (fStatus !== "semua" && r.status !== fStatus) return false;
+              return (
+                !q ||
+                (
+                  r.id +
+                  " " +
+                  r.location +
+                  " " +
+                  r.reporter.name +
+                  " " +
+                  r.type +
+                  " " +
+                  r.desc
+                )
+                  .toLowerCase()
+                  .indexOf(q) > -1
+              );
+            })
+            .sort(function (a, b) {
+              return b.createdAt.localeCompare(a.createdAt);
+            });
+          $("#klist").innerHTML = L.length
+            ? L.map(function (r) {
+                return (
+                  '<button class="row" data-act="open" data-id="' +
+                  esc(r.id) +
+                  '"><span class="main"><span class="mono">' +
+                  esc(r.id) +
+                  (r.demo ? " · contoh" : "") +
+                  "</span><b>" +
+                  esc(r.location) +
+                  " — " +
+                  esc(r.type) +
+                  '</b><span class="meta">' +
+                  esc(fmt(r.when)) +
+                  " · Pelapor: " +
+                  esc(r.reporter.name) +
+                  (r.photos && r.photos.length
+                    ? " · " + r.photos.length + " foto"
+                    : "") +
+                  (r.pic ? " · PJ: " + esc(r.pic) : "") +
+                  '</span></span><span class="pills">' +
+                  pill(SEV, r.severity) +
+                  pill(STATUS, r.status) +
+                  "</span></button>"
+                );
+              }).join("")
+            : '<div class="empty">Tidak ada laporan yang cocok.</div>';
+        }
+
+        /* ---------- dialogs ---------- */
+        function closeDlg() {
+          dlg.innerHTML = "";
+          openId = null;
+          if (lastFocus && lastFocus.focus) {
+            try {
+              lastFocus.focus();
+            } catch (e) {}
+          }
+        }
+        function openLogin() {
+          lastFocus = document.activeElement;
+          dlg.innerHTML =
+            '<div class="overlay" data-overlay="1"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="lt"><div class="sheet-h"><div><p class="eyebrow">Akun demo</p><h2 id="lt">Masuk</h2></div><button class="icon-btn" data-act="close-dlg" aria-label="Tutup">×</button></div>' +
+            '<p class="muted">Pilih akun demo untuk mengisi form otomatis.</p>' +
+            accountsHtml() +
+            '<form id="lf" class="stack" novalidate><div class="field"><label for="l-email">Email</label><input id="l-email" type="email" autocomplete="username" placeholder="admin@selamatk3.demo"></div><div class="field"><label for="l-pass">Kata sandi</label><input id="l-pass" type="password" autocomplete="current-password"></div><div id="l-err" class="err" hidden></div><div><button class="btn" type="submit">Masuk</button></div></form></div></div>';
+          var f = $("#l-email");
+          if (f) f.focus();
+        }
+        function openDetail(id) {
+          var r = state.reports.filter(function (x) {
+            return x.id === id;
+          })[0];
+          if (!r) return;
+          lastFocus = document.activeElement;
+          openId = id;
+          dlg.innerHTML =
+            '<div class="overlay" data-overlay="1"><div class="sheet" role="dialog" aria-modal="true" aria-labelledby="dt">' +
+            '<div class="sheet-h"><div><p class="mono">' +
+            esc(r.id) +
+            (r.demo ? " · contoh data" : "") +
+            '</p><h2 id="dt">' +
+            esc(r.location) +
+            '</h2><div class="chips" style="margin-top:8px">' +
+            pill(STATUS, r.status) +
+            pill(SEV, r.severity) +
+            '<span class="pill p-mute">' +
+            esc(r.type) +
+            '</span></div></div><button class="icon-btn" data-act="close-dlg" aria-label="Tutup">×</button></div>' +
+            '<div class="kv"><div><small>Waktu kejadian</small><span>' +
+            esc(fmt(r.when)) +
+            "</span></div><div><small>Pelapor</small><span>" +
+            esc(r.reporter.name) +
+            "</span></div><div><small>Dilaporkan</small><span>" +
+            esc(fmt(r.createdAt)) +
+            "</span></div><div><small>Korban</small><span>" +
+            esc(r.victim || "-") +
+            "</span></div></div>" +
+            '<div><p class="lbl" style="margin-bottom:6px">Kronologi</p><div class="desc">' +
+            esc(r.desc) +
+            "</div></div>" +
+            (r.action
+              ? '<div><p class="lbl" style="margin-bottom:6px">Tindakan awal dari pelapor</p><div class="desc">' +
+                esc(r.action) +
+                "</div></div>"
+              : "") +
+            (r.photos && r.photos.length
+              ? '<div><p class="lbl" style="margin-bottom:8px">Foto pendukung</p><div class="gal">' +
+                r.photos
+                  .map(function (p, i) {
+                    return (
+                      '<button type="button" data-act="zoom" data-id="' +
+                      esc(r.id) +
+                      '" data-i="' +
+                      i +
+                      '" aria-label="Perbesar foto ' +
+                      (i + 1) +
+                      '"><img src="' +
+                      esc(p) +
+                      '" alt="Foto pendukung ' +
+                      (i + 1) +
+                      '"></button>'
+                    );
+                  })
+                  .join("") +
+                "</div></div>"
+              : "") +
+            '<form id="df" class="card stack" novalidate><h3>Tindak lanjut</h3><div class="frow"><div class="field"><label for="d-status">Status</label><select id="d-status">' +
+            STATUS_KEYS.map(function (k) {
+              return (
+                '<option value="' +
+                k +
+                '"' +
+                (r.status === k ? " selected" : "") +
+                ">" +
+                STATUS[k][0] +
+                "</option>"
+              );
+            }).join("") +
+            '</select></div><div class="field"><label for="d-pic">Penanggung jawab</label><input id="d-pic" type="text" maxlength="80" value="' +
+            esc(r.pic) +
+            '" placeholder="Nama petugas atau supervisor"></div></div>' +
+            '<div class="field"><label for="d-target">Target selesai</label><input id="d-target" type="date" value="' +
+            esc(r.target || "") +
+            '"></div>' +
+            '<div class="field"><label for="d-note">Catatan atau tindakan korektif</label><textarea id="d-note" maxlength="800" placeholder="Hasil pemeriksaan, penyebab, dan langkah perbaikan."></textarea><span class="hint">Catatan wajib diisi sebelum status diubah menjadi Selesai.</span></div>' +
+            '<div id="d-err" class="err" hidden></div><div><button class="btn" type="submit">Simpan tindak lanjut</button></div></form>' +
+            '<div><p class="lbl" style="margin-bottom:10px">Riwayat</p><div class="tl">' +
+            r.logs
+              .slice()
+              .reverse()
+              .map(function (l) {
+                return (
+                  '<div class="tl-i"><i></i><div><span>' +
+                  pill(STATUS, l.status) +
+                  ' <span class="muted" style="font-size:.8rem">' +
+                  esc(fmt(l.at)) +
+                  " · " +
+                  esc(l.by) +
+                  "</span></span><span>" +
+                  esc(l.text) +
+                  "</span></div></div>"
+                );
+              })
+              .join("") +
+            "</div></div>" +
+            "</div></div>";
+          var c = $(".icon-btn", dlg);
+          if (c) c.focus();
+        }
+
+        /* ---------- photos ---------- */
+        var formPhotos = [],
+          MAXPH = 3;
+        function phMsg(t) {
+          var m = $("#ph-msg");
+          if (m) m.textContent = t;
+        }
+        function renderPhotos() {
+          var box = $("#ph-list");
+          if (!box) return;
+          box.innerHTML = formPhotos
+            .map(function (p, i) {
+              return (
+                '<div class="ph"><img src="' +
+                esc(p) +
+                '" alt="Foto ' +
+                (i + 1) +
+                '"><button type="button" data-act="rm-photo" data-i="' +
+                i +
+                '" aria-label="Hapus foto ' +
+                (i + 1) +
+                '">×</button></div>'
+              );
+            })
+            .join("");
+          var full = formPhotos.length >= MAXPH;
+          ["pick-cam", "pick-gal"].forEach(function (a) {
+            var b = $('[data-act="' + a + '"]');
+            if (b) b.disabled = full;
+          });
+        }
+        function compress(file) {
+          return new Promise(function (res, rej) {
+            var url = URL.createObjectURL(file),
+              img = new Image();
+            img.onload = function () {
+              var max = 1280,
+                w = img.naturalWidth,
+                h = img.naturalHeight,
+                k = Math.min(1, max / Math.max(w, h));
+              var c = document.createElement("canvas");
+              c.width = Math.max(1, Math.round(w * k));
+              c.height = Math.max(1, Math.round(h * k));
+              var x = c.getContext("2d");
+              x.fillStyle = "#fff";
+              x.fillRect(0, 0, c.width, c.height);
+              x.drawImage(img, 0, 0, c.width, c.height);
+              URL.revokeObjectURL(url);
+              try {
+                res(c.toDataURL("image/jpeg", 0.72));
+              } catch (e) {
+                rej(e);
+              }
+            };
+            img.onerror = function () {
+              URL.revokeObjectURL(url);
+              rej(new Error("decode"));
+            };
+            img.src = url;
+          });
+        }
+        function addFiles(list) {
+          var all = Array.prototype.slice.call(list || []);
+          var files = all.filter(function (f) {
+            return /^image\//.test(f.type) && f.size <= 25 * 1024 * 1024;
+          });
+          if (!files.length) {
+            if (all.length)
+              phMsg(
+                "Pilih berkas gambar (JPG, PNG, atau WebP) dengan ukuran di bawah 25 MB.",
+              );
+            return;
+          }
+          var room = MAXPH - formPhotos.length,
+            cut = files.length > room,
+            failed = false;
+          files = files.slice(0, room);
+          phMsg("Memproses foto...");
+          files
+            .reduce(function (p, f) {
+              return p.then(function () {
+                return compress(f).then(
+                  function (d) {
+                    formPhotos.push(d);
+                    renderPhotos();
+                  },
+                  function () {
+                    failed = true;
+                  },
+                );
+              });
+            }, Promise.resolve())
+            .then(function () {
+              phMsg(
+                failed
+                  ? "Ada foto yang tidak bisa dibaca. Coba format JPG atau PNG."
+                  : cut
+                    ? "Maksimal " +
+                      MAXPH +
+                      " foto. Sebagian foto tidak ditambahkan."
+                    : formPhotos.length + " foto siap dikirim.",
+              );
+            });
+        }
+        function openLb(src) {
+          $("#lb").innerHTML =
+            '<div class="overlay lb" data-act="close-lb" role="dialog" aria-modal="true" aria-label="Pratinjau foto"><div style="display:flex;flex-direction:column;gap:14px;align-items:center;max-width:100%;margin:auto"><img src="' +
+            esc(src) +
+            '" alt="Foto pendukung diperbesar"><button type="button" class="btn sm" data-act="close-lb">Tutup</button></div></div>';
+        }
+        function closeLb() {
+          $("#lb").innerHTML = "";
+        }
+
+        /* ---------- router ---------- */
+        function route() {
+          var h = (location.hash || "").slice(1);
+          cur = VIEWS.indexOf(h) > -1 ? h : "beranda";
+          VIEWS.forEach(function (v) {
+            $("#v-" + v).hidden = v !== cur;
+          });
+          renderHeader();
+          if (cur === "beranda") renderHome();
+          else if (cur === "edukasi") renderEdu();
+          else if (cur === "lapor") renderLapor();
+          else renderKelola();
+          window.scrollTo(0, 0);
+        }
+        window.addEventListener("hashchange", route);
+        function rerender() {
+          var y = window.scrollY;
+          renderHeader();
+          if (cur === "beranda") renderHome();
+          else if (cur === "edukasi") renderEdu();
+          else if (cur === "lapor") renderLapor();
+          else renderKelola();
+          window.scrollTo(0, y);
+        }
+
+        /* ---------- events ---------- */
+        document.addEventListener("click", function (e) {
+          var ov = e.target.closest && e.target.closest("[data-overlay]");
+          if (ov && e.target === ov) {
+            closeDlg();
+            return;
+          }
+          var a = e.target.closest("[data-act]");
+          if (!a) return;
+          var act = a.dataset.act;
+          if (act === "login") {
+            openLogin();
+          } else if (act === "login-fill") {
+            openLogin();
+            fill(+a.dataset.i);
+          } else if (act === "fill") {
+            fill(+a.dataset.i);
+          } else if (act === "close-dlg") {
+            closeDlg();
+          } else if (act === "theme") {
+            toggleTheme();
+          } else if (act === "pick-cam") {
+            var ci = $("#f-cam");
+            if (ci) ci.click();
+          } else if (act === "pick-gal") {
+            var gi = $("#f-gal");
+            if (gi) gi.click();
+          } else if (act === "rm-photo") {
+            formPhotos.splice(+a.dataset.i, 1);
+            renderPhotos();
+            phMsg(
+              formPhotos.length
+                ? formPhotos.length + " foto siap dikirim."
+                : "Foto dihapus.",
+            );
+          } else if (act === "zoom") {
+            var zr = state.reports.filter(function (x) {
+              return x.id === a.dataset.id;
+            })[0];
+            if (zr && zr.photos && zr.photos[+a.dataset.i])
+              openLb(zr.photos[+a.dataset.i]);
+          } else if (act === "close-lb") {
+            closeLb();
+          } else if (act === "logout") {
+            state.session = null;
+            lastDone = null;
+            save();
+            if (cur === "kelola" && false) {
+            }
+            rerender();
+            toast("Anda sudah keluar.");
+          } else if (act === "tab") {
+            eduTab = a.dataset.t;
+            renderEdu();
+          } else if (act === "quiz") {
+            quiz[+a.dataset.q] = +a.dataset.o;
+            var y = window.scrollY;
+            renderEdu();
+            window.scrollTo(0, y);
+          } else if (act === "quiz-reset") {
+            quiz = {};
+            renderEdu();
+          } else if (act === "filter") {
+            fStatus = a.dataset.s;
+            renderKelola();
+          } else if (act === "open") {
+            openDetail(a.dataset.id);
+          } else if (act === "reset-demo") {
+            state = seed();
+            save();
+            closeDlg();
+            rerender();
+            toast("Data demo dikembalikan.");
+          }
+        });
+        function fill(i) {
+          var acc = ACCOUNTS[i];
+          if (!acc) return;
+          $("#l-email").value = acc.email;
+          $("#l-pass").value = acc.pass;
+          $("#l-pass").focus();
+        }
+        document.addEventListener("keydown", function (e) {
+          if (e.key !== "Escape") return;
+          if ($("#lb").innerHTML) closeLb();
+          else if (dlg.innerHTML) closeDlg();
+        });
+        document.addEventListener("change", function (e) {
+          var t = e.target;
+          if (!t || (t.id !== "f-cam" && t.id !== "f-gal")) return;
+          addFiles(t.files);
+          t.value = "";
+        });
+        try {
+          window
+            .matchMedia("(prefers-color-scheme: dark)")
+            .addEventListener("change", function () {
+              renderHeader();
+            });
+        } catch (e) {}
+        document.addEventListener("input", function (e) {
+          if (e.target && e.target.id === "kq") {
+            fQ = e.target.value;
+            renderKList();
+          }
+        });
+
+        document.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var id = e.target.id;
+          if (id === "lf") {
+            var em = $("#l-email").value.trim().toLowerCase(),
+              pw = $("#l-pass").value,
+              box = $("#l-err");
+            var acc = ACCOUNTS.filter(function (a) {
+              return a.email === em && a.pass === pw;
+            })[0];
+            if (!acc) {
+              box.hidden = false;
+              box.textContent =
+                "Email atau kata sandi tidak cocok. Pilih salah satu akun demo di atas.";
+              return;
+            }
+            state.session = {
+              email: acc.email,
+              name: acc.name,
+              role: acc.role,
+              label: acc.label,
+            };
+            save();
+            closeDlg();
+            if (acc.role === "admin" && cur === "beranda") {
+              location.hash = "#kelola";
+            } else {
+              rerender();
+            }
+            toast("Selamat datang, " + acc.name.split(" ")[0] + ".");
+          } else if (id === "rf") {
+            var when = $("#f-when").value,
+              loc = $("#f-loc").value.trim(),
+              desc = $("#f-desc").value.trim(),
+              box2 = $("#rf-err");
+            var err = !when
+              ? "Isi waktu kejadian."
+              : !loc
+                ? "Isi lokasi kejadian."
+                : desc.length < 15
+                  ? "Kronologi minimal 15 karakter agar admin dapat memahami kejadiannya."
+                  : "";
+            if (err) {
+              box2.hidden = false;
+              box2.textContent = err;
+              return;
+            }
+            var n = ++state.seq,
+              rid =
+                "LK-" +
+                new Date().getFullYear() +
+                "-" +
+                String(n).padStart(4, "0"),
+              s = me(),
+              nowI = new Date().toISOString();
+            state.reports.push({
+              id: rid,
+              createdAt: nowI,
+              when: new Date(when).toISOString(),
+              reporter: { email: s.email, name: s.name },
+              location: loc,
+              type: $("#f-type").value,
+              severity:
+                (document.querySelector('input[name="sev"]:checked') || {})
+                  .value || "ringan",
+              victim: $("#f-victim").value.trim(),
+              desc: desc,
+              action: $("#f-act").value.trim(),
+              photos: formPhotos.slice(),
+              status: "baru",
+              pic: "",
+              target: "",
+              logs: [
+                {
+                  at: nowI,
+                  by: s.name,
+                  status: "baru",
+                  text: "Laporan diterima.",
+                },
+              ],
+            });
+            var dropped = false,
+              rep = state.reports[state.reports.length - 1];
+            if (!save() && rep.photos.length) {
+              rep.photos = [];
+              dropped = true;
+              save();
+            }
+            lastDone = rid;
+            renderLapor();
+            window.scrollTo(0, 0);
+            toast(
+              dropped
+                ? "Laporan " +
+                    rid +
+                    " terkirim, tetapi foto tidak tersimpan (penyimpanan peramban penuh)."
+                : "Laporan " + rid + " terkirim.",
+            );
+          } else if (id === "df") {
+            var r = state.reports.filter(function (x) {
+              return x.id === openId;
+            })[0];
+            if (!r) return;
+            var st = $("#d-status").value,
+              pic = $("#d-pic").value.trim(),
+              tg = $("#d-target").value,
+              note = $("#d-note").value.trim(),
+              b = $("#d-err");
+            if (st === "selesai" && !note && r.status !== "selesai") {
+              b.hidden = false;
+              b.textContent =
+                "Isi catatan tindakan korektif sebelum menandai laporan selesai.";
+              return;
+            }
+            var changed =
+              st !== r.status ||
+              pic !== r.pic ||
+              tg !== (r.target || "") ||
+              note;
+            if (!changed) {
+              b.hidden = false;
+              b.textContent = "Belum ada perubahan untuk disimpan.";
+              return;
+            }
+            var parts = [];
+            if (st !== r.status)
+              parts.push("Status diubah ke " + STATUS[st][0] + ".");
+            if (pic !== r.pic)
+              parts.push("Penanggung jawab: " + (pic || "dikosongkan") + ".");
+            if (tg !== (r.target || ""))
+              parts.push(
+                "Target selesai: " + (tg ? fmtD(tg) : "dihapus") + ".",
+              );
+            if (note) parts.push(note);
+            r.status = st;
+            r.pic = pic;
+            r.target = tg;
+            r.logs.push({
+              at: new Date().toISOString(),
+              by: me().name,
+              status: st,
+              text: parts.join(" "),
+            });
+            save();
+            openDetail(r.id);
+            renderKelola();
+            toast("Tindak lanjut disimpan.");
+          }
+        });
+
+        route();
+      })();
+    </script>
+  </body>
+</html>
